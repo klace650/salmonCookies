@@ -6,31 +6,32 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 // Seattle Store
 
 var seaStore = {
   minCustomer: 23,
   maxCustomer: 65,
-  averageSale: 6.3, //its per visit, bud.
+  averageSale: 6.3,
   soldCookies: [],
 
-  // Generate random customer traffic
-  // within limits
   generateTraffic: function(){
     var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
     return pickANumber; 
   },
-  // Simulate sales using random traffic and averageSale
-  //just need to multiply generated traffic count and averageSale:
   // needs to run for each hour - for loop i reckon?
+  // also needs to display in soldCookies
+  // publish to soldCookies first maybe?
+  
   simulateSales: function(){
-    var runSim = this.generateTraffic() * this.averageSale
-    return runSim;
+    for (var i = 0; i < 14; i++);{ 
+    var runSim = (this.generateTraffic() * this.averageSale);
+    return Math.floor(runSim);
+      
+    } // Why isn't this running 14 times?
   },
 };
 
 
 
-console.log(seaStore.generateTraffic()); //seaStore.generateTraffic produces one random number between 23 and 60. yus.
-console.log(seaStore.simulateSales()); // so far this just shows one hour
+console.log('Random traffic generator - seaStore: '+ seaStore.generateTraffic());
+console.log('Simulated Sales - seaStore: '+ seaStore.simulateSales()); // so far this just shows one hour
