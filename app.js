@@ -13,28 +13,39 @@ var seaStore = {
   maxCustomer: 65,
   averageSale: 6.3,
   soldCookies: [],
+  businessHours: ['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm'],
 
   generateTraffic: function(){
     var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber; 
+      return pickANumber; 
   },
   // needs to run for each hour - for loop i reckon?
   // also needs to display in soldCookies
-  // publish to soldCookies first maybe?
+  // publish to soldCookies first maybe? // 
   
   simulateSales: function(){
-    for (var i = 0; i < 14; i++);{
-    var runSim = (this.generateTraffic() * this.averageSale);
+    for (var i = 0; i < 14; i++){
+    var runSim = this.generateTraffic() * this.averageSale;
     var roundedSales = Math.floor(runSim);
-      this.soldCookies[i] = roundedSales
-      console.log(this.soldCookies)
+      this.soldCookies[i] = roundedSales;
+      // console.log(this.soldCookies[i]);
     }
-
   },
-
+  postToSales: function(){
+    // for (var i = 0; i < 14; i++){
+    var parentSales = document.getElementById('sea');
+    var childSales = document.getElementById('li');
+      childSales.textContent = this.soldCookies + this.businessHours;
+      parentSales.appendChild(childSales);
+      
+    // }
+  },
 };
 
-console.log(seaStore.soldCookies)
 
-console.log('Random traffic generator - seaStore: '+ seaStore.generateTraffic());
-console.log('sim sales - outside function: '+ seaStore.simulateSales()); // so far this just shows one hour
+seaStore.postToSales();
+seaStore.simulateSales();
+
+// console.log(seaStore.soldCookies)
+
+// console.log('Random traffic generator - seaStore: '+ seaStore.generateTraffic());
