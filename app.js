@@ -21,21 +21,26 @@ var seaStore = {
   },
   // needs to run for each hour - for loop i reckon?
   // also needs to display in soldCookies
-  // publish to soldCookies first maybe?
+  // publish to soldCookies first maybe? // 
   
   simulateSales: function(){
     for (var i = 0; i < 14; i++);{
     var runSim = this.generateTraffic() * this.averageSale;
     var roundedSales = Math.floor(runSim);
-      this.soldCookies[0] = roundedSales
-      console.log('Seattle cookie sales: ', roundedSales)
-      
+      this.soldCookies[i] = roundedSales;
+      console.log(this.soldCookies[i]);
     }
 
   },
 
 };
 
+postSales: function(){
+  for (var i = 0; i < 14; i++);{
+    var parentSales = document.getElementById('sea');
+    var childSales = document.getElementById('li')
+  }
+};
 
 seaStore.simulateSales();
 
