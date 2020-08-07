@@ -17,31 +17,33 @@ var seaStore = {
 
   generateTraffic: function(){
     var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber; 
+      return pickANumber; 
   },
   // needs to run for each hour - for loop i reckon?
   // also needs to display in soldCookies
   // publish to soldCookies first maybe? // 
   
   simulateSales: function(){
-    for (var i = 0; i < 14; i++);{
+    for (var i = 0; i < 14; i++){
     var runSim = this.generateTraffic() * this.averageSale;
     var roundedSales = Math.floor(runSim);
       this.soldCookies[i] = roundedSales;
-      console.log(this.soldCookies[i]);
+      // console.log(this.soldCookies[i]);
     }
-
   },
-
-};
-
-postSales: function(){
-  for (var i = 0; i < 14; i++);{
+  postToSales: function(){
+    // for (var i = 0; i < 14; i++){
     var parentSales = document.getElementById('sea');
-    var childSales = document.getElementById('li')
-  }
+    var childSales = document.getElementById('li');
+      childSales.textContent = this.soldCookies + this.businessHours;
+      parentSales.appendChild(childSales);
+      
+    // }
+  },
 };
 
+
+seaStore.postToSales();
 seaStore.simulateSales();
 
 // console.log(seaStore.soldCookies)
