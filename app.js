@@ -23,15 +23,17 @@ var seaStore = {
   // publish to soldCookies first maybe?
   
   simulateSales: function(){
-    for (var i = 0; i < 14; i++);{ 
+
     var runSim = (this.generateTraffic() * this.averageSale);
-    return Math.floor(runSim);
-      
-    } // Why isn't this running 14 times?
+    var roundedSales = Math.floor(runSim);
+      this.soldCookies[0] = roundedSales
+      // console.log('sim sales - inside function '+roundedSales)
+    // return Math.floor(runSim)
   },
+
 };
 
+console.log(seaStore.soldCookies)
 
-
-console.log('Random traffic generator - seaStore: '+ seaStore.generateTraffic());
-console.log('Simulated Sales - seaStore: '+ seaStore.simulateSales()); // so far this just shows one hour
+// console.log('Random traffic generator - seaStore: '+ seaStore.generateTraffic());
+console.log('sim sales - outside function: '+ seaStore.simulateSales()); // so far this just shows one hour
