@@ -63,14 +63,94 @@ var tokStore = {
     }
   },
 };
+var dubStore = {
+  minCustomer: 11,
+  maxCustomer: 38,
+  averageSale: 3.7,
+  soldCookies: [],
 
+  generateTraffic: function(){
+    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
+    return pickANumber;
+    },
+  simulateSales: function(){
+    for (var i = 0; i < 14; i++){
+    var runSim = this.generateTraffic() * this.averageSale;
+    var roundedSales = Math.floor(runSim);
+    this.soldCookies[i] = roundedSales;
+    }
+    },
+  postToSales: function(){
+    for (var i = 0; i < 14; i++){
+    var parentSales = document.getElementById('dub');
+    var childSales = document.createElement('li');
+    childSales.textContent = this.soldCookies[i] + businessHours[i];
+    parentSales.appendChild(childSales);  
+    }
+  },
+};
+var parStore = {
+  minCustomer: 20,
+  maxCustomer: 38,
+  averageSale: 2.3,
+  soldCookies: [],
 
+  generateTraffic: function(){
+    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
+    return pickANumber;
+    },
+  simulateSales: function(){
+    for (var i = 0; i < 14; i++){
+    var runSim = this.generateTraffic() * this.averageSale;
+    var roundedSales = Math.floor(runSim);
+    this.soldCookies[i] = roundedSales;
+    }
+    },
+  postToSales: function(){
+    for (var i = 0; i < 14; i++){
+    var parentSales = document.getElementById('par');
+    var childSales = document.createElement('li');
+    childSales.textContent = this.soldCookies[i] + businessHours[i];
+    parentSales.appendChild(childSales);  
+    }
+  },
+};
+var limStore = {
+  minCustomer: 2,
+  maxCustomer: 16,
+  averageSale: 4.6,
+  soldCookies: [],
 
+  generateTraffic: function(){
+    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
+    return pickANumber;
+    },
+  simulateSales: function(){
+    for (var i = 0; i < 14; i++){
+    var runSim = this.generateTraffic() * this.averageSale;
+    var roundedSales = Math.floor(runSim);
+    this.soldCookies[i] = roundedSales;
+    }
+    },
+  postToSales: function(){
+    for (var i = 0; i < 14; i++){
+    var parentSales = document.getElementById('lim');
+    var childSales = document.createElement('li');
+    childSales.textContent = this.soldCookies[i] + businessHours[i];
+    parentSales.appendChild(childSales);  
+    }
+  },
+};
 
 //  Simulate
 seaStore.simulateSales();
 tokStore.simulateSales();
-
+dubStore.simulateSales();
+parStore.simulateSales();
+limStore.simulateSales();
 //  Render
 seaStore.postToSales();
 tokStore.postToSales();
+dubStore.postToSales();
+parStore.postToSales();
+limStore.postToSales();
