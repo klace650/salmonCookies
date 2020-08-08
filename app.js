@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 // Math.random script from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -17,35 +17,23 @@ var seaStore = {
 
   generateTraffic: function(){
     var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-      return pickANumber; 
+    return pickANumber;
   },
-  // needs to run for each hour - for loop i reckon?
-  // also needs to display in soldCookies
-  // publish to soldCookies first maybe? // 
-  
   simulateSales: function(){
     for (var i = 0; i < 14; i++){
     var runSim = this.generateTraffic() * this.averageSale;
     var roundedSales = Math.floor(runSim);
-      this.soldCookies[i] = roundedSales;
-      // console.log(this.soldCookies[i]);
+    this.soldCookies[i] = roundedSales;
     }
-  },
+    },
   postToSales: function(){
-    // for (var i = 0; i < 14; i++){
+    for (var i = 0; i < 14; i++){
     var parentSales = document.getElementById('sea');
     var childSales = document.getElementById('li');
-      childSales.textContent = this.soldCookies + this.businessHours;
-      parentSales.appendChild(childSales);
-      
-    // }
+    childSales.textContent = this.soldCookies[i] + this.businessHours[i];
+    parentSales.appendChild(childSales);  
+    }
   },
 };
-
-
-seaStore.postToSales();
 seaStore.simulateSales();
-
-// console.log(seaStore.soldCookies)
-
-// console.log('Random traffic generator - seaStore: '+ seaStore.generateTraffic());
+seaStore.postToSales();
