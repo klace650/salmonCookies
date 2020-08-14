@@ -7,150 +7,39 @@ function getRandomIntInclusive(min, max) {
 }
 var businessHours = [' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
 
-//************Start of Objects**************//
 
-var seaStore = {
-  minCustomer: 23,
-  maxCustomer: 65,
-  averageSale: 6.3,
-  soldCookies: [],
-  
+// Constructor
 
-  generateTraffic: function(){
-    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber;
-  },
-  simulateSales: function(){
-    for (var i = 0; i < 14; i++){
-    var runSim = this.generateTraffic() * this.averageSale;
-    var roundedSales = Math.floor(runSim);
-    this.soldCookies[i] = roundedSales;
-    }
-    },
-  postToSales: function(){
-    for (var i = 0; i < 14; i++){
-    var parentSales = document.getElementById('sea');
-    var childSales = document.createElement('li');
-    childSales.textContent = this.soldCookies[i] + businessHours[i];
-    parentSales.appendChild(childSales);  
-    }
-  },
+function Store(location, minCustomer, maxCustomer, averageSale){
+  this.location = location;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.averageSale = averageSale;
+  this.hourlySales = [];
+  this.businessHours = [' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
 };
 
-var tokStore = {
-  minCustomer: 3,
-  maxCustomer: 24,
-  averageSale: 1.2,
-  soldCookies: [],
-
-  generateTraffic: function(){
-    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber;
-    },
-  simulateSales: function(){
-    for (var i = 0; i < 14; i++){
-    var runSim = this.generateTraffic() * this.averageSale;
-    var roundedSales = Math.floor(runSim);
-    this.soldCookies[i] = roundedSales;
-    }
-    },
-  postToSales: function(){
-    for (var i = 0; i < 14; i++){
-    var parentSales = document.getElementById('tok');
-    var childSales = document.createElement('li');
-    childSales.textContent = this.soldCookies[i] + businessHours[i];
-    parentSales.appendChild(childSales);  
-    }
-  },
-};
-var dubStore = {
-  minCustomer: 11,
-  maxCustomer: 38,
-  averageSale: 3.7,
-  soldCookies: [],
-
-  generateTraffic: function(){
-    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber;
-    },
-  simulateSales: function(){
-    for (var i = 0; i < 14; i++){
-    var runSim = this.generateTraffic() * this.averageSale;
-    var roundedSales = Math.floor(runSim);
-    this.soldCookies[i] = roundedSales;
-    }
-    },
-  postToSales: function(){
-    for (var i = 0; i < 14; i++){
-    var parentSales = document.getElementById('dub');
-    var childSales = document.createElement('li');
-    childSales.textContent = this.soldCookies[i] + businessHours[i];
-    parentSales.appendChild(childSales);  
-    }
-  },
-};
-var parStore = {
-  minCustomer: 20,
-  maxCustomer: 38,
-  averageSale: 2.3,
-  soldCookies: [],
-
-  generateTraffic: function(){
-    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber;
-    },
-  simulateSales: function(){
-    for (var i = 0; i < 14; i++){
-    var runSim = this.generateTraffic() * this.averageSale;
-    var roundedSales = Math.floor(runSim);
-    this.soldCookies[i] = roundedSales;
-    }
-    },
-  postToSales: function(){
-    for (var i = 0; i < 14; i++){
-    var parentSales = document.getElementById('par');
-    var childSales = document.createElement('li');
-    childSales.textContent = this.soldCookies[i] + businessHours[i];
-    parentSales.appendChild(childSales);  
-    }
-  },
-};
-var limStore = {
-  minCustomer: 2,
-  maxCustomer: 16,
-  averageSale: 4.6,
-  soldCookies: [],
-
-  generateTraffic: function(){
-    var pickANumber = getRandomIntInclusive(this.minCustomer,this.maxCustomer);
-    return pickANumber;
-    },
-  simulateSales: function(){
-    for (var i = 0; i < 14; i++){
-    var runSim = this.generateTraffic() * this.averageSale;
-    var roundedSales = Math.floor(runSim);
-    this.soldCookies[i] = roundedSales;
-    }
-    },
-  postToSales: function(){
-    for (var i = 0; i < 14; i++){
-    var parentSales = document.getElementById('lim');
-    var childSales = document.createElement('li');
-    childSales.textContent = this.soldCookies[i] + businessHours[i];
-    parentSales.appendChild(childSales);  
-    }
-  },
+Store.prototype.generateTraffic = function(){
+    var min = this.minCustomer;
+    var max = this.maxCustomer;
+    var randomNumber = Math.random()*(max-min)+ min;
+    return Math.floor(randomNumber);
 };
 
-//  Simulate
-seaStore.simulateSales();
-tokStore.simulateSales();
-dubStore.simulateSales();
-parStore.simulateSales();
-limStore.simulateSales();
-//  Render
-seaStore.postToSales();
-tokStore.postToSales();
-dubStore.postToSales();
-parStore.postToSales();
-limStore.postToSales();
+Store.prototype.simulateSales = function(){
+  for (var i = 0; i < 14; i++){
+    var soldCookies = this.generateTraffic()*this.averageSale;
+    this.hourlySales.push(soldCookies);
+    return Math.floor(soldCookies);
+  }
+};
+Store.prototype.postToSale = function(){
+  for (var i = 0; i < 14; i++){
+    var parentSales = document.getElementById()
+  }
+};
+
+ var seaStore = new Store('Seattle', 23, 65, 6.3)
+
+console.log(seaStore.generateTraffic());
+console.log(seaStore.simulateSales());

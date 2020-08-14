@@ -3,7 +3,37 @@ li{
 }
 h1{
   text-align: center;
+  height: 30px;
+  background-color: #FFD166;
+  font-size: 25px;
+  width: 300px;
+  
 }
 #mainPic{
-  
+  width: 300px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* filter: hue-rotate(500deg); */
+  padding-top: 5px;
+
+}
+div {
+  margin: auto;
+  width: 300px;
+  border: 5px solid #06D6A0;
+  padding: 10px;
+
+}
+li a {
+  /* display: inline; */
+  background-color: #FA8072;
+  float: left;
+
+}
+
+h2{
+  background-color: blue;
+  width: 300px;
 }
