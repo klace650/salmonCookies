@@ -34,8 +34,7 @@ Store.prototype.simulateSales = function(){
   }
 };
 Store.prototype.postToSale = function(){
-  for (var i = 0; i < 14; i++){
-    var parentSales = document.getElementById()
+  var table = document.getElementById()
   }
 };
 
