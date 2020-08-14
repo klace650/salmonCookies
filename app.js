@@ -33,12 +33,21 @@ Store.prototype.simulateSales = function(){
     return Math.floor(soldCookies);
   }
 };
-Store.prototype.postToSale = function(){
-  var table = document.getElementById()
+
+function salesData(id){
+  var liStoreLocation = document.createElement('li');
+    liStoreLocation.textContent = this.location;
+    var ulStoreLi = document.getElementById();
+  ulStoreLi.appendChild(liStoreLocation);
+  for (var i=0; i < this.j.length; i++) {
+    var liStore = document.createElement('li');
+    liStore.textContent = this.businessHours[i] + ':' +this.hourlySales[i] + 'cookies';
+    ulStoreLi.appendChild(liStore);
   }
-};
+}
+
 
  var seaStore = new Store('Seattle', 23, 65, 6.3)
-
+// console.log(x)
 console.log(seaStore.generateTraffic());
 console.log(seaStore.simulateSales());
