@@ -20,9 +20,9 @@ function Store(location, minCustomer, maxCustomer, averageSale){
 };
 
 Store.prototype.generateTraffic = function(){
-    var min = this.minCustomer;
-    var max = this.maxCustomer;
-    var randomNumber = Math.random()*(max-min)+ min;
+  var min = this.minCustomer;
+  var max = this.maxCustomer;
+  var randomNumber = Math.random()*(max-min)+ min;
     return Math.floor(randomNumber);
 };
 
@@ -31,23 +31,18 @@ Store.prototype.simulateSales = function(){
     var soldCookies = this.generateTraffic()*this.averageSale;
     this.hourlySales.push(soldCookies);
     return Math.floor(soldCookies);
+    // console.log(Math.floor(soldCookies));
   }
 };
 
-function salesData(id){
-  var liStoreLocation = document.createElement('li');
-    liStoreLocation.textContent = this.location;
-    var ulStoreLi = document.getElementById();
-  ulStoreLi.appendChild(liStoreLocation);
-  for (var i=0; i < this.j.length; i++) {
-    var liStore = document.createElement('li');
-    liStore.textContent = this.businessHours[i] + ':' +this.hourlySales[i] + 'cookies';
-    ulStoreLi.appendChild(liStore);
-  }
-}
+//1 Find Target
+//2 Create element
+//2.5 populate text
+//3 append to dom
 
 
  var seaStore = new Store('Seattle', 23, 65, 6.3)
 // console.log(x)
 console.log(seaStore.generateTraffic());
 console.log(seaStore.simulateSales());
+// console.log(seaStore.render());
