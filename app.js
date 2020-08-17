@@ -8,7 +8,7 @@ function Store(location, minCustomer, maxCustomer, averageSale){
   this.maxCustomer = maxCustomer;
   this.averageSale = averageSale;
   this.hourlySales = [];
-  this.businessHours = [' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
+  this.businessHours = [' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm', 'Total'];
 };
 
 Store.prototype.generateTraffic = function(){
@@ -40,14 +40,21 @@ var parentSales = document.getElementById('salesData');
 var childSales = document.createElement('li');
 parentSales.appendChild(childSales);
 }
-
+Store.prototype.salesHeader = function(){
+  for (var i = 0; i < this.businessHours.length; i++){
+    var headerParent = document.getElementById('salesHeader');
+    var headerChild = document.createElement('th');
+    headerChild.textContent = this.businessHours[i];
+    headerParent.appendChild(headerChild);
+  }
+}
 
 // STORE STATS //
  var seaStore = new Store('Seattle', 23, 65, 6.3)
 //  var testStore = new Store ('Test', 21, 45, 5.2)
 
  // CONSOLE LOGS //
+seaStore.salesHeader();
 seaStore.simulateSales();
 seaStore.getTotals();
-seaStore.tryRender();
 console.log(seaStore.hourlySales);
