@@ -41,9 +41,12 @@ table,th,td{
   border: 1px solid black;
   width: auto;
 }
-/* table {
-  width: 50%;
+table {
+  width: 666px;
 }
 th, td{
   width: auto
-} */
+}
+timeHeader {
+  width: 666px;
+}
