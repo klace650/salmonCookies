@@ -68,13 +68,13 @@ Store.prototype.renderTableHeader = function(){
   for (var i = 0; i < this.businessHours.length; i++){
     var headerParent = document.getElementById('salesReport');
     var headerChild = document.createElement('tr');
-      var tableHeader = document.createElement('td');
-      tableHeader.textContent = this.businessHours;
-      headerChild.appendChild(tableHeader);
+      var time = document.createElement('td');
+      time.textContent = this.businessHours;
+      headerChild.appendChild(time);
     headerParent.appendChild(headerChild);
+    console.log(time)
   }
 }
-
 function runSalesSimulation(){
   for (var i = 0; i < stores.length; i++){
     stores[i].simulateSales();
