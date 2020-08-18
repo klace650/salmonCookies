@@ -1,6 +1,8 @@
 'use strict';
 
 // STORE STATS //
+var stores = [];
+
  var seaStore = new Store('Seattle', 23, 65, 6.3)
  var tokStore = new Store('Tokyo', 3, 24, 1.2 )
  var parStore = new Store('Dubai', 11, 38, 3.7)
@@ -17,7 +19,10 @@ function Store(location, minCustomer, maxCustomer, averageSale){
   this.averageSale = averageSale;
   this.hourlySales = [];
   this.businessHours = [' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm', 'Total'];
+  stores.push(this);
 };
+
+console.log(stores)
 
 Store.prototype.generateTraffic = function(){
   var min = this.minCustomer;
@@ -30,8 +35,6 @@ Store.prototype.simulateSales = function(){
   for (var i = 0; i < 14; i++){
     var soldCookies = this.generateTraffic()*this.averageSale;
     this.hourlySales.push(Math.floor(soldCookies));
-    // return Math.floor(soldCookies);
-    // console.log(Math.floor(soldCookies));
   }
 };
 
@@ -60,26 +63,14 @@ Store.prototype.renderTable = function(){
   }
 };
 
+function runSalesSimulation(){
+  for (var i = 0; i < stores.length; i++){
+    stores[i].simulateSales();
+    stores[i].getTotals();
+    stores[i].renderTable();
+  }
+}
+// Run Simulation and generate graph.
+runSalesSimulation();
 
-// CONSOLE LOGS //
-
-seaStore.simulateSales();
-seaStore.getTotals();
-seaStore.renderTable();
-
-tokStore.simulateSales();
-tokStore.getTotals();
-tokStore.renderTable();
-
-parStore.simulateSales();
-parStore.getTotals();
-parStore.renderTable();
-
-dubStore.simulateSales();
-dubStore.getTotals();
-dubStore.renderTable();
-
-limStore.simulateSales();
-limStore.getTotals();
-limStore.renderTable();
 
