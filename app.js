@@ -18,7 +18,7 @@ function Store(location, minCustomer, maxCustomer, averageSale){
   this.maxCustomer = maxCustomer;
   this.averageSale = averageSale;
   this.hourlySales = [];
-  this.businessHours = [' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
+  this.businessHours = ['',' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
   stores.push(this);
 };
 
@@ -64,14 +64,12 @@ Store.prototype.renderTable = function(){
 
 Store.prototype.renderTableHeader = function(){
   for (var i = 0; i < this.businessHours.length; i++){
-  var headerParent = document.getElementById('salesReport');
-  
+  var headerParent = document.getElementById('salesReport');  
 var headerChild = document.createElement('th');
 headerChild.textContent = this.businessHours[i];
 headerParent.appendChild(headerChild);
   }
-}
-
+};
 
 function runSalesSimulation(){
   for (var i = 0; i < stores.length; i++){
@@ -80,7 +78,7 @@ function runSalesSimulation(){
     stores[i].renderTableHeader();
     stores[i].renderTable();
   }
-} 
+};
 // Run Simulation and generate graph.
 runSalesSimulation();
 
