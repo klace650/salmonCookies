@@ -39,4 +39,11 @@ h2{
 }
 table,th,td{
   border: 1px solid black;
+  width: auto;
 }
+/* table {
+  width: 50%;
+}
+th, td{
+  width: auto
+} */
