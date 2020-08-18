@@ -53,6 +53,8 @@ Store.prototype.renderTable = function(){
     tableHeader.textContent = this.location;
     row.appendChild(tableHeader);
   table.appendChild(row);
+
+  console.log(tableHeader);
     
   for (var i = 0; i < this.hourlySales.length; i++){
     var table = document.getElementById('salesReport');
@@ -62,15 +64,25 @@ Store.prototype.renderTable = function(){
   
   }
 };
+Store.prototype.renderTableHeader = function(){
+  for (var i = 0; i < this.businessHours.length; i++){
+    var headerParent = document.getElementById('salesReport');
+    var headerChild = document.createElement('tr');
+      var tableHeader = document.createElement('td');
+      tableHeader.textContent = this.businessHours;
+      headerChild.appendChild(tableHeader);
+    headerParent.appendChild(headerChild);
+  }
+}
 
 function runSalesSimulation(){
   for (var i = 0; i < stores.length; i++){
     stores[i].simulateSales();
     stores[i].getTotals();
     stores[i].renderTable();
+    stores[i].renderTableHeader();
   }
-}
-// Run Simulation and generate graph.
+} // Run Simulation and generate graph.
 runSalesSimulation();
 
 
