@@ -1,5 +1,13 @@
 'use strict';
 
+// STORE STATS //
+ var seaStore = new Store('Seattle', 23, 65, 6.3)
+ var tokStore = new Store('Tokyo', 3, 24, 1.2 )
+ var parStore = new Store('Dubai', 11, 38, 3.7)
+ var dubStore = new Store('Paris', 20, 38, 2.3)
+ var limStore = new Store('Lima', 2, 16, 4.6)
+
+
 // Constructor //
 
 function Store(location, minCustomer, maxCustomer, averageSale){
@@ -52,16 +60,26 @@ Store.prototype.renderTable = function(){
   }
 };
 
-// STORE STATS //
- var seaStore = new Store('Seattle', 23, 65, 6.3)
- var tokStore = new Store('Tokyo', 29, 15, 2.6 )
- var testStore = new Store('TEST', 11, 22, 3.3)
 
 // CONSOLE LOGS //
+
 seaStore.simulateSales();
 seaStore.getTotals();
 seaStore.renderTable();
+
 tokStore.simulateSales();
 tokStore.getTotals();
 tokStore.renderTable();
+
+parStore.simulateSales();
+parStore.getTotals();
+parStore.renderTable();
+
+dubStore.simulateSales();
+dubStore.getTotals();
+dubStore.renderTable();
+
+limStore.simulateSales();
+limStore.getTotals();
+limStore.renderTable();
 
