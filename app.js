@@ -3,11 +3,11 @@
 // STORE STATS //
 var stores = [];
 
- var seaStore = new Store('Seattle', 23, 65, 6.3)
- var tokStore = new Store('Tokyo', 3, 24, 1.2 )
- var parStore = new Store('Dubai', 11, 38, 3.7)
- var dubStore = new Store('Paris', 20, 38, 2.3)
- var limStore = new Store('Lima', 2, 16, 4.6)
+ var seaStore = new Store('Seattle', 23, 65, 6.3);
+ var tokStore = new Store('Tokyo', 3, 24, 1.2 );
+ var parStore = new Store('Dubai', 11, 38, 3.7);
+ var dubStore = new Store('Paris', 20, 38, 2.3);
+ var limStore = new Store('Lima', 2, 16, 4.6);
 
 
 // Constructor //
@@ -21,8 +21,6 @@ function Store(location, minCustomer, maxCustomer, averageSale){
   this.businessHours = ['',' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
   stores.push(this);
 };
-
-console.log(stores)
 
 Store.prototype.generateTraffic = function(){
   var min = this.minCustomer;
@@ -62,6 +60,7 @@ Store.prototype.renderTable = function(){
   }
 };
 
+// THIS WILL PUT HEADER ON EACH LINE AFTER EACH LINE
 Store.prototype.renderTableHeader = function(){
   for (var i = 0; i < this.businessHours.length; i++){
   var headerParent = document.getElementById('salesReport');  
