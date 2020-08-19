@@ -3,6 +3,8 @@
 // STORE STATS //
 var stores = [];
 
+var businessHours = ['','6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm', 'Totals'];
+
  var seaStore = new Store('Seattle', 23, 65, 6.3);
  var tokStore = new Store('Tokyo', 3, 24, 1.2 );
  var parStore = new Store('Dubai', 11, 38, 3.7);
@@ -18,7 +20,6 @@ function Store(location, minCustomer, maxCustomer, averageSale){
   this.maxCustomer = maxCustomer;
   this.averageSale = averageSale;
   this.hourlySales = [];
-  this.businessHours = ['',' 6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
   stores.push(this);
 };
 
@@ -43,42 +44,39 @@ Store.prototype.getTotals = function(){
   };
   this.hourlySales.push(cookieTotal);
 };
-  
+
+Store.prototype.renderTableHeader = function(){
+  var headerParent = document.getElementById('salesReport');
+  for (var i = 0; i < businessHours.length; i++){
+  var headerChild = document.createElement('th');
+  headerChild.textContent = businessHours[i];
+  headerParent.appendChild(headerChild);
+  }
+}
+
 Store.prototype.renderTable = function(){
   var table = document.getElementById('salesReport');
   var row = document.createElement('tr');
-    var tableHeader = document.createElement('th');
-    tableHeader.textContent = this.location;
-    row.appendChild(tableHeader);
+  var tableHeader = document.createElement('td');
+  tableHeader.textContent = this.location;
+  row.appendChild(tableHeader);
   table.appendChild(row);
-    
+  
   for (var i = 0; i < this.hourlySales.length; i++){
     var table = document.getElementById('salesReport');
     var tableData = document.createElement('td');
-      tableData.textContent = this.hourlySales[i];
+    tableData.textContent = this.hourlySales[i];
     row.appendChild(tableData);
   }
 };
 
-// THIS WILL PUT HEADER ON EACH LINE AFTER EACH LINE
-Store.prototype.renderTableHeader = function(){
-  for (var i = 0; i < this.businessHours.length; i++){
-  var headerParent = document.getElementById('salesReport');  
-var headerChild = document.createElement('th');
-headerChild.textContent = this.businessHours[i];
-headerParent.appendChild(headerChild);
-  }
-};
-
 function runSalesSimulation(){
+    seaStore.renderTableHeader();
   for (var i = 0; i < stores.length; i++){
     stores[i].simulateSales();
     stores[i].getTotals();
-    stores[i].renderTableHeader();
     stores[i].renderTable();
   }
 };
 // Run Simulation and generate graph.
 runSalesSimulation();
-
-
