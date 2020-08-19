@@ -3,7 +3,7 @@
 // STORE STATS //
 var stores = [];
 
-var businessHours = ['6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm'];
+var businessHours = ['','6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm', 'Totals'];
 
  var seaStore = new Store('Seattle', 23, 65, 6.3);
  var tokStore = new Store('Tokyo', 3, 24, 1.2 );
@@ -70,66 +70,13 @@ Store.prototype.renderTable = function(){
   }
 };
 
-seaStore.simulateSales();
-seaStore.getTotals();
-seaStore.renderTableHeader();
-seaStore.renderTable();
-
-tokStore.simulateSales();
-tokStore.getTotals();
-// tokStore.renderTableHeader();
-tokStore.renderTable();
-
-dubStore.simulateSales();
-dubStore.getTotals();
-// dubStore.renderTableHeader();
-dubStore.renderTable();
-
-parStore.simulateSales();
-parStore.getTotals();
-// parStore.renderTableHeader();
-parStore.renderTable();
-
-limStore.simulateSales();
-limStore.getTotals();
-// limStore.renderTableHeader();
-limStore.renderTable();
-// function runSalesSimulation(){
-//   for (var i = 0; i < stores.length; i++){
-//     stores[i].simulateSales();
-//     stores[i].getTotals();
-//     stores[i].renderTableHeader();
-//     // stores[i].renderTable();
-//   }
-// };
+function runSalesSimulation(){
+    seaStore.renderTableHeader();
+  for (var i = 0; i < stores.length; i++){
+    stores[i].simulateSales();
+    stores[i].getTotals();
+    stores[i].renderTable();
+  }
+};
 // Run Simulation and generate graph.
-// runSalesSimulation();
-
-
-
-
-
-
-// Store.prototype.renderTableHeader = function(){
-// var table = document.getElementById('salesReport');
-// var tableTest = document.createElement('td');
-// tableTest.textContent = 'TEST1'
-// table.appendChild(tableTest);
-// for (var i = 0; i < this.businessHours.length; i ++){
-//   var tableHead = document.createElement('td');
-//     tableHead.textContent = this.businessHours[i];
-//   table.appendChild(tableHead);
-
-//   }
-// }
-
-
-// // THIS WILL PUT HEADER ON EACH LINE AFTER EACH LINE
-// Store.prototype.renderTableHeader = function(){
-//   for (var i = 0; i < this.businessHours.length; i++){
-//   var headerParent = document.getElementById('salesReport');  
-// var headerChild = document.createElement('th');
-// headerChild.textContent = this.businessHours[i];
-// headerParent.appendChild(headerChild);
-//   }
-// };  
+runSalesSimulation();
