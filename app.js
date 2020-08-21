@@ -70,12 +70,24 @@ Store.prototype.renderTable = function(){
   }
 };
 
+
+
+function renderSalesList(){
+  for (var i = 0; i < 15; i++);
+  var parentPost = document.getElementById('postedSales');
+  var childPost = document.createElement('li');
+  childPost.textContent = this.hourlySales[i] + this.businessHours[i];
+  parentPost.appendChild(childPost);
+}
+console.log(seaStore.hourlySales)
+
 function runSalesSimulation(){
     seaStore.renderTableHeader();
   for (var i = 0; i < stores.length; i++){
     stores[i].simulateSales();
     stores[i].getTotals();
     stores[i].renderTable();
+    // stores[i].renderSalesList();
   }
 };
 // Run Simulation and generate graph.
