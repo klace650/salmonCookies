@@ -1,7 +1,49 @@
-li{
+nav {
+  background-color: chartreuse;
+  text-align: center;
+  padding: 5px;
+}
+a {
+  text-decoration: none;
+  padding-right: 10px;
+}
+a:hover{
+  background-color: crimson;
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 70px;
+}
+.logo-mockup{
+  position: relative;
+  text-align: center;
+  color: aliceblue;
+}
+.logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*OLD CSS DOWN BELOW*/
+/* li{ */
   background-color: #FFFCF9;
 }
-h1{
+/* h1{ */
   text-align: center;
   height: 30px;
   background-color: #FFD166;
@@ -9,7 +51,7 @@ h1{
   width: 300px;
   
 }
-#mainPic{
+/* #mainPic{ */
   width: 300px;
   height: auto;
   display: block;
@@ -19,32 +61,32 @@ h1{
   padding-top: 5px;
 
 }
-div {
+/* div { */
   margin: auto;
   width: 300px;
   border: 5px solid #06D6A0;
   padding: 10px;
 }
-li a {
+/* li a { */
   /* display: inline; */
   background-color: #FA8072;
   float: left;
 }
 
-h2{
+/* h2{ */
   background-color: blue;
   width: 300px;
 }
-table,th,td{
+/* table,th,td{ */
   border: 1px solid black;
   width: auto;
 }
-table {
+/* table { */
   width: 666px;
 }
-th, td{
+/* th, td{ */
   width: auto
 }
-timeHeader {
+/* timeHeader { */
   width: 666px;
 }
