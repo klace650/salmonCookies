@@ -10,21 +10,25 @@ a {
 a:hover{
   background-color: crimson;
 }
-h1 {
+ .logo{
   font-family: 'Pacifico', cursive;
   text-align: center;
-  font-size: 70px;
+  font-size: 50px;
+  color: #FFFCF9;
 }
 .logo-mockup{
   position: relative;
   text-align: center;
-  color: aliceblue;
 }
 .logo{
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+img {
+  width: 700px;
+  height: auto;
 }
 
 
