@@ -1,5 +1,5 @@
 nav {
-  background-color: chartreuse;
+  background-color: #06D6A0;
   text-align: center;
   padding: 5px;
 }
@@ -8,12 +8,12 @@ a {
   padding-right: 10px;
 }
 a:hover{
-  background-color: crimson;
+  background-color: #FA8072;
 }
  .logo{
   font-family: 'Pacifico', cursive;
   text-align: center;
-  font-size: 50px;
+  font-size: 70px;
   color: #FFFCF9;
 }
 .logo-mockup{
@@ -27,74 +27,42 @@ a:hover{
   transform: translate(-50%, -50%);
 }
 img {
-  width: 700px;
+  width: 800px;
   height: auto;
   background-color: #FFFCF9;
-   box-shadow: inset 0 0 15px #000000;
+  box-shadow: inset 0 0 15px #26547C;
+  margin-top: 15px;
+  
 }
 html{
   background-color: #26547C;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/*OLD CSS DOWN BELOW*/
-/* li{ */
-  background-color: #FFFCF9;
-}
-/* h1{ */
+h1{
+  background-color: black;
+  color: #FFD166;
   text-align: center;
-  height: 30px;
-  background-color: #FFD166;
-  font-size: 25px;
-  width: 300px;
-  
-}
-/* #mainPic{ */
-  width: 300px;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* filter: hue-rotate(500deg); */
-  padding-top: 5px;
-
-}
-/* div { */
+  width: 80%;
   margin: auto;
-  width: 300px;
-  border: 5px solid #06D6A0;
+  margin-bottom: 15px ;
+  margin-top: 15px;
+  font-size: 30px;
+}
+
+#locationsDiv{
+  background-color: #FFD166;
+  font-size: 20px;
+  width: 200px;
+  margin-left: 25px;
   padding: 10px;
 }
-/* li a { */
-  /* display: inline; */
-  background-color: #FA8072;
-  float: left;
+h2{
+  font-size: 40px;
+  text-align: center;
 }
-
-/* h2{ */
-  background-color: blue;
-  width: 300px;
-}
-/* table,th,td{ */
-  border: 1px solid black;
-  width: auto;
-}
-/* table { */
-  width: 666px;
-}
-/* th, td{ */
-  width: auto
-}
-/* timeHeader { */
-  width: 666px;
+main{
+  border-style: dotted;
+  border-color: crimson;
+  width: 700px;
+  margin-right: 50%;
+  margin-left: 50%;
 }
