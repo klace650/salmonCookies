@@ -10,11 +10,14 @@ a {
 a:hover{
   background-color: #FA8072;
 }
- .logo{
+ .logo{ 
   font-family: 'Pacifico', cursive;
   text-align: center;
-  font-size: 70px;
-  color: #FFFCF9;
+  font-size: 80px;
+  font-weight: bolder;
+  color: #06D6A0;
+
+  
 }
 .logo-mockup{
   position: relative;
@@ -29,10 +32,14 @@ a:hover{
 img {
   width: 800px;
   height: auto;
-  background-color: #FFFCF9;
-  box-shadow: inset 0 0 15px #26547C;
+  background-color: #26547C;
   margin-top: 15px;
-  
+  border-width: 10px;
+  border-style: dashed;
+  border-color: #FFD166;
+  /* filter: hue-rotate(200deg); */
+
+
 }
 html{
   background-color: #26547C;
@@ -41,28 +48,52 @@ h1{
   background-color: black;
   color: #FFD166;
   text-align: center;
-  width: 80%;
+  width: 750px;
   margin: auto;
   margin-bottom: 15px ;
   margin-top: 15px;
-  font-size: 30px;
-}
+  font-size: 40px;
 
-#locationsDiv{
-  background-color: #FFD166;
-  font-size: 20px;
-  width: 200px;
-  margin-left: 25px;
-  padding: 10px;
 }
 h2{
   font-size: 40px;
   text-align: center;
 }
 main{
-  border-style: dotted;
-  border-color: crimson;
-  width: 700px;
-  margin-right: 50%;
-  margin-left: 50%;
+  border-style: dashed;
+  border-color: #FA8072;
+  border-width: 10px;
+  width: 800px;
+  margin: auto;
+  
+}
+#family{
+  border-style: ridge;
+  margin-left: 100px;
+  width: 600px;
+}
+#frosted{
+  width: 500px;
+  float: right;
+  border: none;
+  margin-right: 1%;
+}
+#locationsDiv{
+  width: 250px;
+  background-color: #FFD166;
+  padding: 10px;
+  margin-left: 1%;
+}
+table, th, td{
+  border: 1px solid #FFD166;
+  padding: 5px;
+  color: #FFD166;
+  margin: auto;
+  width: 800px;
+}
+#merchPics > div >img{
+  width: 250px;
+  border: none;
+  height: 250px;
+  padding: 7px;
 }
