@@ -91,12 +91,12 @@ function runSalesSimulation(){
 function handleSubmit(event){
   event.preventDefault();
 
-  var name = event.target.name.value;
+  var name = event.target.name;
   var min = event.target.min.value;
   var max = event.target.max.value;
   var ave = event.target.ave.value;
 
-  console.log('location, minCustomer, maxCustomer, average', location, minCustomer, maxCustomer, average);
+  console.log(name, min, max, ave);
 }
 // Run Simulation and generate table.
 runSalesSimulation();
