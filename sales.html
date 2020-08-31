@@ -26,6 +26,31 @@
   
   
   <main>
+    <form id="newStore"></form>
+    <fieldset>
+
+      <legend>New Store</legend>
+
+      <label> Store Location
+        <input type="text" name="Location" placeholder="Store Location">
+      </label>
+
+      <label> Minimum Customers
+        <input type="number" name="minCustomer" placeholder="123">
+      </label>
+      
+      <label> Maximum Customers
+        <input type="number" name="maxCustomer" placeholder="123">
+      </label>
+
+      <label> Average Sales
+        <input type="float" name="averageSale" placeholder="12.3">
+      </label>
+
+      <button type="submit">Submit</button>
+
+    </fieldset>
+
     <table id="salesReport"></table>
     <ul id='postedSales'></ul>
   </main>
