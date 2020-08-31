@@ -91,7 +91,7 @@ function runSalesSimulation(){
 function handleSubmit(event){
   event.preventDefault();
 
-  var name = event.target.name;
+  var name = event.target.name.value;
   var min = event.target.min.value;
   var max = event.target.max.value;
   var ave = event.target.ave.value;
