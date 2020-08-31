@@ -2,7 +2,7 @@
 
 // STORE STATS //
 var stores = [];
-
+var form = document.getElementById('newStore');
 var businessHours = ['','6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm',' 2pm',' 3pm',' 4pm',' 5pm',' 6pm',' 7pm', 'Totals'];
 
  var seaStore = new Store('Seattle', 23, 65, 6.3);
@@ -70,8 +70,6 @@ Store.prototype.renderTable = function(){
   }
 };
 
-
-
 function renderSalesList(){
   for (var i = 0; i < 15; i++);
   var parentPost = document.getElementById('postedSales');
@@ -79,7 +77,7 @@ function renderSalesList(){
   childPost.textContent = this.hourlySales[i] + this.businessHours[i];
   parentPost.appendChild(childPost);
 }
-console.log(seaStore.hourlySales)
+// console.log(seaStore.hourlySales)
 
 function runSalesSimulation(){
     seaStore.renderTableHeader();
@@ -90,5 +88,18 @@ function runSalesSimulation(){
     // stores[i].renderSalesList();
   }
 };
-// Run Simulation and generate graph.
+function handleSubmit(event){
+  event.preventDefault();
+
+  var name = event.target.name.value;
+  var min = event.target.min.value;
+  var max = event.target.max.value;
+  var ave = event.target.ave.value;
+
+  console.log('location, minCustomer, maxCustomer, average', location, minCustomer, maxCustomer, average);
+}
+// Run Simulation and generate table.
 runSalesSimulation();
+
+form.addEventListener('submit', handleSubmit);
+
