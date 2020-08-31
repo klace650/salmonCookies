@@ -11,9 +11,7 @@ var businessHours = ['','6am',' 7am',' 8am',' 9am',' 10am',' 11am',' 12pm',' 1pm
  var dubStore = new Store('Paris', 20, 38, 2.3);
  var limStore = new Store('Lima', 2, 16, 4.6);
 
-
 // Constructor //
-
 function Store(location, minCustomer, maxCustomer, averageSale){
   this.location = location;
   this.minCustomer = minCustomer;
@@ -22,21 +20,18 @@ function Store(location, minCustomer, maxCustomer, averageSale){
   this.hourlySales = [];
   stores.push(this);
 };
-
 Store.prototype.generateTraffic = function(){
   var min = this.minCustomer;
   var max = this.maxCustomer;
   var randomNumber = Math.random()*(max-min)+ min;
     return Math.floor(randomNumber);
 };
-
 Store.prototype.simulateSales = function(){
   for (var i = 0; i < 14; i++){
     var soldCookies = this.generateTraffic()*this.averageSale;
     this.hourlySales.push(Math.floor(soldCookies));
   }
 };
-
 Store.prototype.getTotals = function(){
   var cookieTotal = 0;
   for (var i = 0; i < this.hourlySales.length; i++) {
@@ -44,7 +39,6 @@ Store.prototype.getTotals = function(){
   };
   this.hourlySales.push(cookieTotal);
 };
-
 Store.prototype.renderTableHeader = function(){
   var headerParent = document.getElementById('salesReport');
   for (var i = 0; i < businessHours.length; i++){
@@ -53,7 +47,6 @@ Store.prototype.renderTableHeader = function(){
   headerParent.appendChild(headerChild);
   }
 }
-
 Store.prototype.renderTable = function(){
   var table = document.getElementById('salesReport');
   var row = document.createElement('tr');
@@ -69,37 +62,30 @@ Store.prototype.renderTable = function(){
     row.appendChild(tableData);
   }
 };
-
-function renderSalesList(){
-  for (var i = 0; i < 15; i++);
-  var parentPost = document.getElementById('postedSales');
-  var childPost = document.createElement('li');
-  childPost.textContent = this.hourlySales[i] + this.businessHours[i];
-  parentPost.appendChild(childPost);
-}
-// console.log(seaStore.hourlySales)
-
 function runSalesSimulation(){
     seaStore.renderTableHeader();
   for (var i = 0; i < stores.length; i++){
     stores[i].simulateSales();
     stores[i].getTotals();
     stores[i].renderTable();
-    // stores[i].renderSalesList();
   }
 };
 function handleSubmit(event){
   event.preventDefault();
 
   var name = event.target.name.value;
-  var min = event.target.min.value;
-  var max = event.target.max.value;
-  var ave = event.target.ave.value;
+  var min = parseInt(event.target.min.value);
+  var max = parseInt(event.target.max.value);
+  var ave = parseInt(event.target.ave.value);
 
-  console.log('location, minCustomer, maxCustomer, average', location, minCustomer, maxCustomer, average);
-}
-// Run Simulation and generate table.
+  console.log('name, min, max, ave', name, min, max, ave);
+  var newLocation = new Store (name, min, max, ave);
+  newLocation.generateTraffic();
+  newLocation.simulateSales();
+  newLocation.renderTable();
+  newLocation.getTotals();
+};
+
 runSalesSimulation();
-
 form.addEventListener('submit', handleSubmit);
 
